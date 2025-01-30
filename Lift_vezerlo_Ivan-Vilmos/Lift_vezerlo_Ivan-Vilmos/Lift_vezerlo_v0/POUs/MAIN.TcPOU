@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{6ba8dc1c-e289-46b1-bfea-79f9f7b690a7}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	//bemeneti valtozok
+		//helyzeterzekelok
+	i_bEmelet : BOOL;
+	i_bFulkeNYILT : BOOL;
+	i_bFulkeZART : BOOL;
+	
+		//hivo gombok fel
+	i_bGF0, i_bGF1, i_bGF2, i_bGF3, i_bGF4, i_bGF5, i_bGF6, i_bGF7, i_bGF8, i_bGF9 : BOOL;
+		
+		//hivo gombok le
+	i_bGL1, i_bGL2, i_bGL3, i_bGL4, i_bGL5, i_bGL6, i_bGL7, i_bGL8, i_bGL9, i_bGL10 : BOOL;
+	
+		//fulke gombok (ahova menni akarsz)
+	i_bFG0, i_bFG1, i_bFG2, i_bFG3, i_bFG4, i_bFG5, i_bFG6, i_bFG7, i_bFG8, i_bFG9, i_bFG10 : BOOL; 
+	
+	//kimeneti valtozok
+		//motorok
+	q_bFulkeFEL : BOOL;
+	q_bFulkeLE : BOOL;
+	q_bFulkeNYIT : BOOL;
+	q_bFulkezar : BOOL;
+
+		//hivo lampak fel
+	q_bLF0, q_bLF1, q_bLF2, q_bLF3, q_bLF4, q_bLF5, q_bLF6, q_bLF7, q_bLF8, q_bLF9 : BOOL;
+	
+		//hivo lampak le
+	q_bLL1, q_bLL2, q_bLL3, q_bLL4, q_bLL5, q_bLL6, q_bLL7, q_bLL8, q_bLL9, q_bLL10 : BOOL; 
+	
+		//fulkegomb lampak
+	q_bFGL0, q_bFGL1, q_bFGL2, q_bFGL3, q_bFGL4, q_bFGL5, q_bFGL6, q_bFGL7, q_bFGL8, q_bFGL9, q_bFGL10 : BOOL;
+	
+	//triggerek
+	rtGF0, rtGF1, rtGF2, rtGF3, rtGF4, rtGF5, rtGF6, rtGF7, rtGF8, rtGF9 : R_Trig;
+	rtGL1, rtGL2, rtGL3, rtGL4, rtGL5, rtGL6, rtGL7, rtGL8, rtGL9, rtGL10 : R_Trig;
+	rtFG0, rtFG1, rtFG2, rtFG3, rtFG4, rtFG5, rtFG6, rtFG7, rtFG8, rtFG9, rtFG10 : R_Trig; 
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
