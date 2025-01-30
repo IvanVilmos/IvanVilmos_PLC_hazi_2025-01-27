@@ -4,11 +4,13 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	//bemeneti valtozok
-		//helyzeterzekelok
-	i_bEmelet : BOOL;
+		//fulke ajto jelado
 	i_bFulkeNYILT : BOOL;
 	i_bFulkeZART : BOOL;
 	
+		//helyzeterzekelok
+	i_bE0, i_bE1, i_bE2, i_bE3, i_bE4, i_bE5, i_bE6, i_bE7, i_bE8, i_bE9, i_bE10 : BOOL;
+	 
 		//hivo gombok fel
 	i_bGF0, i_bGF1, i_bGF2, i_bGF3, i_bGF4, i_bGF5, i_bGF6, i_bGF7, i_bGF8, i_bGF9 : BOOL;
 		
@@ -38,10 +40,174 @@ VAR
 	rtGF0, rtGF1, rtGF2, rtGF3, rtGF4, rtGF5, rtGF6, rtGF7, rtGF8, rtGF9 : R_Trig;
 	rtGL1, rtGL2, rtGL3, rtGL4, rtGL5, rtGL6, rtGL7, rtGL8, rtGL9, rtGL10 : R_Trig;
 	rtFG0, rtFG1, rtFG2, rtFG3, rtFG4, rtFG5, rtFG6, rtFG7, rtFG8, rtFG9, rtFG10 : R_Trig; 
+
+	
+	//timerek
+	
+	
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[//triggerek
+rtGF0(CLK := i_bGF0);
+rtGF1(CLK := i_bGF1);
+rtGF2(CLK := i_bGF2);
+rtGF3(CLK := i_bGF3);
+rtGF4(CLK := i_bGF4);
+rtGF5(CLK := i_bGF5);
+rtGF6(CLK := i_bGF6);
+rtGF7(CLK := i_bGF7);
+rtGF8(CLK := i_bGF8);
+rtGF9(CLK := i_bGF9);
+rtGL1(CLK := i_bGL1);
+rtGL2(CLK := i_bGL2);
+rtGL3(CLK := i_bGL3);
+rtGL4(CLK := i_bGL4);
+rtGL5(CLK := i_bGL5);
+rtGL6(CLK := i_bGL6);
+rtGL7(CLK := i_bGL7);
+rtGL8(CLK := i_bGL8);
+rtGL9(CLK := i_bGL9);
+rtGL10(CLK := i_bGL10);
+rtFG0(CLK := i_bFG0);
+rtFG1(CLK := i_bFG1);
+rtFG2(CLK := i_bFG2);
+rtFG3(CLK := i_bFG3);
+rtFG4(CLK := i_bFG4);
+rtFG5(CLK := i_bFG5);
+rtFG6(CLK := i_bFG6);
+rtFG7(CLK := i_bFG7);
+rtFG8(CLK := i_bFG8);
+rtFG9(CLK := i_bFG9);
+rtFG10(CLK := i_bFG10);
+
+//gomb megnyomas es lampa felgyulladas osszekotese -- else agak hianyoznak, a gomb beragad
+	//hivo gombok fel
+IF rtGF0.Q THEN
+	q_bLF0 := TRUE;		
+END_IF
+
+IF rtGF1.Q THEN
+	q_bLF1 := TRUE;
+END_IF
+
+IF rtGF2.Q THEN
+	q_bLF2 := TRUE;
+END_IF
+
+IF rtGF3.Q THEN
+	q_bLF3 := TRUE;
+END_IF
+
+IF rtGF4.Q THEN
+	q_bLF4 := TRUE;
+END_IF
+
+IF rtGF5.Q THEN
+	q_bLF5 := TRUE;
+END_IF
+
+IF rtGF6.Q THEN
+	q_bLF6 := TRUE;
+END_IF
+
+IF rtGF7.Q THEN
+	q_bLF7 := TRUE;
+END_IF
+
+IF rtGF8.Q THEN
+	q_bLF8 := TRUE;
+END_IF
+
+IF rtGF9.Q THEN
+	q_bLF9 := TRUE;
+END_IF
+
+	//hivo gombok le
+IF rtGL1.Q THEN
+	q_bLL1 := TRUE;
+END_IF
+
+IF rtGL2.Q THEN
+	q_bLL2 := TRUE;
+END_IF
+
+IF rtGL3.Q THEN
+	q_bLL3 := TRUE;
+END_IF
+
+IF rtGL4.Q THEN
+	q_bLL4 := TRUE;
+END_IF
+
+IF rtGL5.Q THEN
+	q_bLL5 := TRUE;
+END_IF
+
+IF rtGL6.Q THEN
+	q_bLL6 := TRUE;
+END_IF
+
+IF rtGL7.Q THEN
+	q_bLL7 := TRUE;
+END_IF
+
+IF rtGL8.Q THEN
+	q_bLL8 := TRUE;
+END_IF
+
+IF rtGL9.Q THEN
+	q_bLL9 := TRUE;
+END_IF
+
+IF rtGL10.Q THEN
+	q_bLL10 := TRUE;
+END_IF
+
+	//fulke gombok
+IF rtFG0.Q THEN
+	q_bFGL0 := TRUE;
+END_IF
+
+IF rtFG1.Q THEN
+	q_bFGL1 := TRUE;
+END_IF
+
+IF rtFG2.Q THEN
+	q_bFGL2 := TRUE;
+END_IF
+
+IF rtFG3.Q THEN
+	q_bFGL3 := TRUE;
+END_IF
+
+IF rtFG4.Q THEN
+	q_bFGL4 := TRUE;
+END_IF
+
+IF rtFG5.Q THEN
+	q_bFGL5 := TRUE;
+END_IF
+
+IF rtFG6.Q THEN
+	q_bFGL6 := TRUE;
+END_IF
+
+IF rtFG7.Q THEN
+	q_bFGL7 := TRUE;
+END_IF
+
+IF rtFG8.Q THEN
+	q_bFGL8 := TRUE;
+END_IF
+
+IF rtFG9.Q THEN
+	q_bFGL9 := TRUE;
+END_IF
+
+IF rtFG10.Q THEN
+	q_bFGL10 := TRUE;
+END_IF]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

@@ -4,17 +4,17 @@ Egy 10 emeletes épületben 1 lift van. Az emelet számozások 0-10 között van
 
 IO:
     input:
-        - Emelet jelző: Minden szinten van egy jelenlét érzékelő, ami magas jelet ad ha a lift ottvan, alacsonyat, ha nincs ott.
+        - Emelet jelző: Minden szinten van egy jelenlét érzékelő, ami magas jelet ad ha a lift ott van, alacsonyat, ha nincs ott.
         - Hívás gombok: Minden szinten két hívás gomb található, ezektől a fel-le irányú hívásokat kapjuk.
         - Fülke gombok: A fülkében 0-10 közötti számozott gombok vannak, amivel az egyes emeletekre lehet vinni a fülkét.
-        - Lift ajtó zárt állapot jelző: A fülkeajtó rendelkezik egy érzékelővel, ami a zárt állapotot jelzi, tehát magas jelet ad, ha az ajtó teljesen zárt, menetre kész állapotban van, alacsony jelent egyébként.
-        - Lift ajtó nyílt állapot jelző: A fülkeajtó rendelkezik egy érzékelővel, ami a nyílt állapotot jelzi, tehát magas jelet ad, ha az ajtó teljesen nyílt, menetre kész állapotban van, alacsony jelent egyébként.
+        - Lift ajtó zárt állapot jelző: A fülkeajtó rendelkezik egy érzékelővel, ami a zárt állapotot jelzi, tehát magas jelet ad, ha az ajtó teljesen zárt, menetre kész állapotban van, alacsony jelent 	egyébként.
+        - Lift ajtó nyílt állapot jelző: A fülkeajtó rendelkezik egy érzékelővel, ami a nyílt állapotot jelzi, tehát magas jelet ad, ha az ajtó teljesen nyílt, menetre kész állapotban van, alacsony jelent 	egyébként.
     output:
-        - Fülke fel: A motor felfele mozgatja a fülkét ameddig a jel magas. (kölcsönös kizárás szükségges a Fülke le jellel)
-        - Fülke le: A motor lefele mozgatja a fülkét ameddig a jel magas. (kölcsönös kizárás szükségges a Fülke fel jellel)
-        - Hívás nyugta lámpák: Minden szinten a hívás gombokhoz tartozik egy-egy lámpa, ami jelzi, hogy az adott szinthez hartozik-e fel-le irányuló hívás.
-        - Fülke nyit: A fülke ajtó motorja nyitott állapot fele viszi az ajtót. (kölcsönös kizárás szükségges a Fülke zár jellel)
-        - Fülke zár: A fülke ajtó motorja zárt állapot fele viszi az ajtót. (kölcsönös kizárás szükségges a Fülke nyit jellel)
+        - Fülke fel: A motor felfele mozgatja a fülkét ameddig a jel magas. (kölcsönös kizárás szükséges a Fülke le jellel)
+        - Fülke le: A motor lefele mozgatja a fülkét ameddig a jel magas. (kölcsönös kizárás szükséges a Fülke fel jellel)
+        - Hívás nyugta lámpák: Minden szinten a hívás gombokhoz tartozik egy-egy lámpa, ami jelzi, hogy az adott szinthez tartozik-e fel-le irányuló hívás.
+        - Fülke nyit: A fülke ajtó motorja nyitott állapot fele viszi az ajtót. (kölcsönös kizárás szükséges a Fülke zár jellel)
+        - Fülke zár: A fülke ajtó motorja zárt állapot fele viszi az ajtót. (kölcsönös kizárás szükséges a Fülke nyit jellel)
         - Fülke cél állomás jelző lámpák: A fülkében minden elemet gombjához tartozik egy visszajelző, hogy a lift regisztrálta a cél állomást.
 
 

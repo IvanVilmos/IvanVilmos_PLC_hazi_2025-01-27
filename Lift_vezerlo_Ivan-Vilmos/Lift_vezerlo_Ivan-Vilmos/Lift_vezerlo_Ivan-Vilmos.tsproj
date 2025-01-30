@@ -10,7 +10,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{E1598D6F-F302-47BD-BB8D-8DE91AC4A382}" Name="Lift_vezerlo_v0" PrjFilePath="Lift_vezerlo_v0\Lift_vezerlo_v0.plcproj" TmcFilePath="Lift_vezerlo_v0\Lift_vezerlo_v0.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{86EC2AAF-68C7-D204-CC3B-81587307ECA5}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{B59FCD80-B5EA-A8B3-4053-BBB6DE2134A6}" TmcPath="Lift_vezerlo_v0\Lift_vezerlo_v0.tmc">
 					<Name>Lift_vezerlo_v0 Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Contexts>
