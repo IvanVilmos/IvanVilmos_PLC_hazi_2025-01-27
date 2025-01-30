@@ -1,0 +1,27 @@
+Lift vezérlő
+
+Egy 10 emeletes épületben 1 lift van. Az emelet számozások 0-10 között vannak, ahol 0 a földszint. A fülke mindig egy emeleten van, az emeletek között teleportál.
+
+IO:
+    input:
+        - Emelet jelző: Minden szinten van egy jelenlét érzékelő, ami magas jelet ad ha a lift ottvan, alacsonyat, ha nincs ott.
+        - Hívás gombok: Minden szinten két hívás gomb található, ezektől a fel-le irányú hívásokat kapjuk.
+        - Fülke gombok: A fülkében 0-10 közötti számozott gombok vannak, amivel az egyes emeletekre lehet vinni a fülkét.
+        - Lift ajtó zárt állapot jelző: A fülkeajtó rendelkezik egy érzékelővel, ami a zárt állapotot jelzi, tehát magas jelet ad, ha az ajtó teljesen zárt, menetre kész állapotban van, alacsony jelent egyébként.
+        - Lift ajtó nyílt állapot jelző: A fülkeajtó rendelkezik egy érzékelővel, ami a nyílt állapotot jelzi, tehát magas jelet ad, ha az ajtó teljesen nyílt, menetre kész állapotban van, alacsony jelent egyébként.
+    output:
+        - Fülke fel: A motor felfele mozgatja a fülkét ameddig a jel magas. (kölcsönös kizárás szükségges a Fülke le jellel)
+        - Fülke le: A motor lefele mozgatja a fülkét ameddig a jel magas. (kölcsönös kizárás szükségges a Fülke fel jellel)
+        - Hívás nyugta lámpák: Minden szinten a hívás gombokhoz tartozik egy-egy lámpa, ami jelzi, hogy az adott szinthez hartozik-e fel-le irányuló hívás.
+        - Fülke nyit: A fülke ajtó motorja nyitott állapot fele viszi az ajtót. (kölcsönös kizárás szükségges a Fülke zár jellel)
+        - Fülke zár: A fülke ajtó motorja zárt állapot fele viszi az ajtót. (kölcsönös kizárás szükségges a Fülke nyit jellel)
+        - Fülke cél állomás jelző lámpák: A fülkében minden elemet gombjához tartozik egy visszajelző, hogy a lift regisztrálta a cél állomást.
+
+
+Ezekkel az alap feltevésekkel a feladat a következő:
+
+Valósítsuk meg a lift vezérlőt, ami képes mind a 11 szinten hívást regisztrálni, a 0.-dik és 10.-dik szint kivételével minden szinten fel és le irányú hívás érkezhet, feltehetjük, hogy egy emeleten egyszerre csak egy hívás történik. A vezérlő minden emeleten output jelet a leírtak szerint kezel. A hívás nyugta lámpa elalszik amikor a lift az adott szinten nyitni kezdi az ajtót.
+A lift a regisztrált hívást csak akkor teljesíti, ha nem éppen az adott emeleten van, tehát ha a lift a 6. emeleten van és a földszintre tart, akkor ha az 5. emeleten regisztrálunk egy lefele irányú hívást, akkor a lift meg fog állni az 5. emeleten, de ha a 6. emeleten regisztálunk egy hívást, akkor azt a lift már nem szolgálja ki, de a hívás nem veszik el, azt a következő adandó alkalommal kiszolgálja, ez hasonló módon működik a felfele esetben is.
+Ha gyüjtő hívás esetén a liftbe nem szállnak be a lift 10 másodperc várakozás után folytatja az útját a következő cél állomás felé.
+
+A feladatnak nem része a liftet szimulálni, csak a vezérlőt elkészíteni. Teszteléshez manuálisan írhatjuk a bemeneteket vagy egy külön task/program keretében írhatunk szimulációt, de ajánlott csak a bemeneteket kézzel írni.
