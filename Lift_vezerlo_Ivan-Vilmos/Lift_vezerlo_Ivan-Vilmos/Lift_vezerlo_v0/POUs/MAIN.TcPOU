@@ -8,206 +8,152 @@ VAR
 	i_bFulkeNYILT : BOOL;
 	i_bFulkeZART : BOOL;
 	
-		//helyzeterzekelok
-	i_bE0, i_bE1, i_bE2, i_bE3, i_bE4, i_bE5, i_bE6, i_bE7, i_bE8, i_bE9, i_bE10 : BOOL;
+		//szintjelzok
+	i_bSzintjelzo : ARRAY[0..10] OF BOOL;
 	 
 		//hivo gombok fel
-	i_bGF0, i_bGF1, i_bGF2, i_bGF3, i_bGF4, i_bGF5, i_bGF6, i_bGF7, i_bGF8, i_bGF9 : BOOL;
+	i_bHivogombFEL : ARRAY[0..9] OF  BOOL;
 		
 		//hivo gombok le
-	i_bGL1, i_bGL2, i_bGL3, i_bGL4, i_bGL5, i_bGL6, i_bGL7, i_bGL8, i_bGL9, i_bGL10 : BOOL;
+	i_bHivogombLE : ARRAY[1..10] OF BOOL;
 	
 		//fulke gombok (ahova menni akarsz)
-	i_bFG0, i_bFG1, i_bFG2, i_bFG3, i_bFG4, i_bFG5, i_bFG6, i_bFG7, i_bFG8, i_bFG9, i_bFG10 : BOOL; 
+	i_bFulkegomb : ARRAY[0..10] OF BOOL; 
 	
 	//kimeneti valtozok
 		//motorok
 	q_bFulkeFEL : BOOL;
 	q_bFulkeLE : BOOL;
 	q_bFulkeNYIT : BOOL;
-	q_bFulkezar : BOOL;
+	q_bFulkeZAR : BOOL;
 
 		//hivo lampak fel
-	q_bLF0, q_bLF1, q_bLF2, q_bLF3, q_bLF4, q_bLF5, q_bLF6, q_bLF7, q_bLF8, q_bLF9 : BOOL;
+	q_bHivolampaFEL : ARRAY[0..9] OF BOOL;
 	
 		//hivo lampak le
-	q_bLL1, q_bLL2, q_bLL3, q_bLL4, q_bLL5, q_bLL6, q_bLL7, q_bLL8, q_bLL9, q_bLL10 : BOOL; 
+	q_bHivolampaLE : ARRAY[1..10] OF BOOL; 
 	
 		//fulkegomb lampak
-	q_bFGL0, q_bFGL1, q_bFGL2, q_bFGL3, q_bFGL4, q_bFGL5, q_bFGL6, q_bFGL7, q_bFGL8, q_bFGL9, q_bFGL10 : BOOL;
+	q_bFulkegomblampa : ARRAY[0..10] OF BOOL;
 	
-	//triggerek
-	rtGF0, rtGF1, rtGF2, rtGF3, rtGF4, rtGF5, rtGF6, rtGF7, rtGF8, rtGF9 : R_Trig;
-	rtGL1, rtGL2, rtGL3, rtGL4, rtGL5, rtGL6, rtGL7, rtGL8, rtGL9, rtGL10 : R_Trig;
-	rtFG0, rtFG1, rtFG2, rtFG3, rtFG4, rtFG5, rtFG6, rtFG7, rtFG8, rtFG9, rtFG10 : R_Trig; 
-
-	
-	//timerek
-	
+	//seged valtozok
+	nCelEmelet : INT;
+	nJelenlegiEmelet : INT;
 	
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[//triggerek
-rtGF0(CLK := i_bGF0);
-rtGF1(CLK := i_bGF1);
-rtGF2(CLK := i_bGF2);
-rtGF3(CLK := i_bGF3);
-rtGF4(CLK := i_bGF4);
-rtGF5(CLK := i_bGF5);
-rtGF6(CLK := i_bGF6);
-rtGF7(CLK := i_bGF7);
-rtGF8(CLK := i_bGF8);
-rtGF9(CLK := i_bGF9);
-rtGL1(CLK := i_bGL1);
-rtGL2(CLK := i_bGL2);
-rtGL3(CLK := i_bGL3);
-rtGL4(CLK := i_bGL4);
-rtGL5(CLK := i_bGL5);
-rtGL6(CLK := i_bGL6);
-rtGL7(CLK := i_bGL7);
-rtGL8(CLK := i_bGL8);
-rtGL9(CLK := i_bGL9);
-rtGL10(CLK := i_bGL10);
-rtFG0(CLK := i_bFG0);
-rtFG1(CLK := i_bFG1);
-rtFG2(CLK := i_bFG2);
-rtFG3(CLK := i_bFG3);
-rtFG4(CLK := i_bFG4);
-rtFG5(CLK := i_bFG5);
-rtFG6(CLK := i_bFG6);
-rtFG7(CLK := i_bFG7);
-rtFG8(CLK := i_bFG8);
-rtFG9(CLK := i_bFG9);
-rtFG10(CLK := i_bFG10);
-
-//gomb megnyomas es lampa felgyulladas osszekotese -- else agak hianyoznak, a gomb beragad
-	//hivo gombok fel
-IF rtGF0.Q THEN
-	q_bLF0 := TRUE;		
+      <ST><![CDATA[//cel emelet regisztralasa
+IF i_bHivogombFEL[0] OR i_bFulkegomb[0] THEN
+	nCelEmelet := 0;
+	ELSE
+	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
-IF rtGF1.Q THEN
-	q_bLF1 := TRUE;
+IF i_bHivogombFEL[1] OR i_bHivogombLE[1] OR i_bFulkegomb[1] THEN
+	nCelEmelet := 1;
+	ELSE
+	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
-IF rtGF2.Q THEN
-	q_bLF2 := TRUE;
+IF i_bHivogombFEL[2] OR i_bHivogombLE[2] OR i_bFulkegomb[2] THEN
+	nCelEmelet := 2;
+	ELSE
+	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
-IF rtGF3.Q THEN
-	q_bLF3 := TRUE;
+IF i_bHivogombFEL[3] OR i_bHivogombLE[3] OR i_bFulkegomb[3] THEN
+	nCelEmelet := 3;
+	ELSE
+	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
-IF rtGF4.Q THEN
-	q_bLF4 := TRUE;
+IF i_bHivogombFEL[4] OR i_bHivogombLE[4] OR i_bFulkegomb[4] THEN
+	nCelEmelet := 4;
+	ELSE
+	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
-IF rtGF5.Q THEN
-	q_bLF5 := TRUE;
+IF i_bHivogombFEL[5] OR i_bHivogombLE[5] OR i_bFulkegomb[5] THEN
+	nCelEmelet := 5;
+	ELSE
+	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
-IF rtGF6.Q THEN
-	q_bLF6 := TRUE;
+IF i_bHivogombFEL[6] OR i_bHivogombLE[6] OR i_bFulkegomb[6] THEN
+	nCelEmelet := 6;
+	ELSE
+	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
-IF rtGF7.Q THEN
-	q_bLF7 := TRUE;
+IF i_bHivogombFEL[7] OR i_bHivogombLE[7] OR i_bFulkegomb[7] THEN
+	nCelEmelet := 7;
+	ELSE
+	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
-IF rtGF8.Q THEN
-	q_bLF8 := TRUE;
+IF i_bHivogombFEL[8] OR i_bHivogombLE[8] OR i_bFulkegomb[8] THEN
+	nCelEmelet := 8;
+	ELSE
+	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
-IF rtGF9.Q THEN
-	q_bLF9 := TRUE;
+IF i_bHivogombFEL[9] OR i_bHivogombLE[9] OR i_bFulkegomb[9] THEN
+	nCelEmelet := 9;
+	ELSE
+	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
-	//hivo gombok le
-IF rtGL1.Q THEN
-	q_bLL1 := TRUE;
+IF i_bHivogombLE[10] OR i_bFulkegomb[10] THEN
+	nCelEmelet := 10;
+	ELSE
+	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
-IF rtGL2.Q THEN
-	q_bLL2 := TRUE;
+//gomb megnyomas es lampa felgyulladas osszekotese 
+	//hivo gombok fel	
+IF i_bHivogombFEL[0] THEN
+	q_bHivolampaFEL[0] := TRUE;
 END_IF
 
-IF rtGL3.Q THEN
-	q_bLL3 := TRUE;
+IF i_bHivogombFEL[1] THEN
+	q_bHivolampaFEL[1] := TRUE;
 END_IF
 
-IF rtGL4.Q THEN
-	q_bLL4 := TRUE;
+IF i_bHivogombFEL[2] THEN
+	q_bHivolampaFEL[2] := TRUE;
 END_IF
 
-IF rtGL5.Q THEN
-	q_bLL5 := TRUE;
+IF i_bHivogombFEL[3] THEN
+	q_bHivolampaFEL[3] := TRUE;
 END_IF
 
-IF rtGL6.Q THEN
-	q_bLL6 := TRUE;
+IF i_bHivogombFEL[4] THEN
+	q_bHivolampaFEL[4] := TRUE;
 END_IF
 
-IF rtGL7.Q THEN
-	q_bLL7 := TRUE;
+IF i_bHivogombFEL[5] THEN
+	q_bHivolampaFEL[5] := TRUE;
 END_IF
 
-IF rtGL8.Q THEN
-	q_bLL8 := TRUE;
+IF i_bHivogombFEL[6] THEN
+	q_bHivolampaFEL[6] := TRUE;
 END_IF
 
-IF rtGL9.Q THEN
-	q_bLL9 := TRUE;
+IF i_bHivogombFEL[7] THEN
+	q_bHivolampaFEL[7] := TRUE;
 END_IF
 
-IF rtGL10.Q THEN
-	q_bLL10 := TRUE;
+IF i_bHivogombFEL[8] THEN
+	q_bHivolampaFEL[8] := TRUE;
 END_IF
 
-	//fulke gombok
-IF rtFG0.Q THEN
-	q_bFGL0 := TRUE;
+IF i_bHivogombFEL[9] THEN
+	q_bHivolampaFEL[9] := TRUE;
 END_IF
 
-IF rtFG1.Q THEN
-	q_bFGL1 := TRUE;
-END_IF
-
-IF rtFG2.Q THEN
-	q_bFGL2 := TRUE;
-END_IF
-
-IF rtFG3.Q THEN
-	q_bFGL3 := TRUE;
-END_IF
-
-IF rtFG4.Q THEN
-	q_bFGL4 := TRUE;
-END_IF
-
-IF rtFG5.Q THEN
-	q_bFGL5 := TRUE;
-END_IF
-
-IF rtFG6.Q THEN
-	q_bFGL6 := TRUE;
-END_IF
-
-IF rtFG7.Q THEN
-	q_bFGL7 := TRUE;
-END_IF
-
-IF rtFG8.Q THEN
-	q_bFGL8 := TRUE;
-END_IF
-
-IF rtFG9.Q THEN
-	q_bFGL9 := TRUE;
-END_IF
-
-IF rtFG10.Q THEN
-	q_bFGL10 := TRUE;
-END_IF]]></ST>
+//hivo gombok le
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
