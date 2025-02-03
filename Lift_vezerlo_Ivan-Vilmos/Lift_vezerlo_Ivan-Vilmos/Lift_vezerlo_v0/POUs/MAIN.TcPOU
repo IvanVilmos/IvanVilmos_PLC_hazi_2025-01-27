@@ -40,80 +40,123 @@ VAR
 	nCelEmelet : INT;
 	nJelenlegiEmelet : INT;
 	
+	//timerek
+	Ajtomozgas : TON;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[//cel emelet regisztralasa
 IF i_bHivogombFEL[0] OR i_bFulkegomb[0] THEN
 	nCelEmelet := 0;
-	ELSE
-	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
 IF i_bHivogombFEL[1] OR i_bHivogombLE[1] OR i_bFulkegomb[1] THEN
 	nCelEmelet := 1;
-	ELSE
-	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
 IF i_bHivogombFEL[2] OR i_bHivogombLE[2] OR i_bFulkegomb[2] THEN
 	nCelEmelet := 2;
-	ELSE
-	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
 IF i_bHivogombFEL[3] OR i_bHivogombLE[3] OR i_bFulkegomb[3] THEN
 	nCelEmelet := 3;
-	ELSE
-	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
 IF i_bHivogombFEL[4] OR i_bHivogombLE[4] OR i_bFulkegomb[4] THEN
 	nCelEmelet := 4;
-	ELSE
-	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
 IF i_bHivogombFEL[5] OR i_bHivogombLE[5] OR i_bFulkegomb[5] THEN
 	nCelEmelet := 5;
-	ELSE
-	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
 IF i_bHivogombFEL[6] OR i_bHivogombLE[6] OR i_bFulkegomb[6] THEN
 	nCelEmelet := 6;
-	ELSE
-	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
 IF i_bHivogombFEL[7] OR i_bHivogombLE[7] OR i_bFulkegomb[7] THEN
 	nCelEmelet := 7;
-	ELSE
-	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
 IF i_bHivogombFEL[8] OR i_bHivogombLE[8] OR i_bFulkegomb[8] THEN
 	nCelEmelet := 8;
-	ELSE
-	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
 IF i_bHivogombFEL[9] OR i_bHivogombLE[9] OR i_bFulkegomb[9] THEN
 	nCelEmelet := 9;
-	ELSE
-	nCelEmelet := nJelenlegiEmelet;
 END_IF
 
 IF i_bHivogombLE[10] OR i_bFulkegomb[10] THEN
 	nCelEmelet := 10;
+END_IF
+
+//fulke megerkezes eszlelese
+IF nCelemelet = 0 AND i_bSzintjelzo[0] THEN
+	nJelenlegiEmelet := nCelEmelet;
+END_IF
+
+IF nCelemelet = 1 AND i_bSzintjelzo[1] THEN
+	nJelenlegiEmelet := nCelEmelet;
+END_IF
+
+IF nCelemelet = 2 AND i_bSzintjelzo[2] THEN
+	nJelenlegiEmelet := nCelEmelet;
+END_IF
+
+IF nCelemelet = 3 AND i_bSzintjelzo[3] THEN
+	nJelenlegiEmelet := nCelEmelet;
+END_IF
+
+IF nCelemelet = 4 AND i_bSzintjelzo[4]THEN
+	nJelenlegiEmelet := nCelEmelet;
+END_IF
+
+IF nCelemelet = 5 AND i_bSzintjelzo[5] THEN
+	nJelenlegiEmelet := nCelEmelet;
+END_IF
+
+IF nCelemelet = 6 AND i_bSzintjelzo[6] THEN
+	nJelenlegiEmelet := nCelEmelet;
+END_IF
+
+IF nCelemelet = 7 AND i_bSzintjelzo[7] THEN
+	nJelenlegiEmelet := nCelEmelet;
+END_IF
+
+IF nCelemelet = 8 AND i_bSzintjelzo[8] THEN
+	nJelenlegiEmelet := nCelEmelet;
+END_IF
+
+IF nCelemelet = 9 AND i_bSzintjelzo[9] THEN
+	nJelenlegiEmelet := nCelEmelet;
+END_IF
+
+IF nCelemelet = 10 AND i_bSzintjelzo[10] THEN
+	nJelenlegiEmelet := nCelEmelet;
+END_IF
+
+//ajto nyitas megadasa
+IF (nJelenlegiEmelet = nCelEmelet) AND NOT (q_bFulkeFEL OR q_bFulkeLE) THEN
+	q_bFulkeNYIT := TRUE;
+	ELSIF q_bFulkeFEL OR q_bFulkeLE THEN
+		q_bFulkeNYIT := FALSE;
 	ELSE
-	nCelEmelet := nJelenlegiEmelet;
+		q_bFulkeNYIT := FALSE;
+END_IF
+
+//ajto zaras megadasa -- talan teljesen kihagyhato es megadhato az ajtonyitas else agaban?
+IF (nJelenlegiEmelet <> nCelEmelet) AND NOT (q_bFulkeFEL OR q_bFulkeLE) THEN
+	q_bFulkeZAR := TRUE;
+	ELSE
+		q_bFulkeZAR := FALSE;
 END_IF
 
 //gomb megnyomas es lampa felgyulladas osszekotese 
 	//hivo gombok fel	
 IF i_bHivogombFEL[0] THEN
 	q_bHivolampaFEL[0] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+	q_bHivolampaFEL[0] := FALSE;
 END_IF
 
 IF i_bHivogombFEL[1] THEN
