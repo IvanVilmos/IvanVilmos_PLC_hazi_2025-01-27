@@ -156,46 +156,254 @@ END_IF
 IF i_bHivogombFEL[0] THEN
 	q_bHivolampaFEL[0] := TRUE;
 	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
-	q_bHivolampaFEL[0] := FALSE;
+		q_bHivolampaFEL[0] := FALSE;
+	ELSE
+		q_bHivolampaFEL[0] := FALSE;	
 END_IF
 
 IF i_bHivogombFEL[1] THEN
 	q_bHivolampaFEL[1] := TRUE;
+		ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaFEL[1] := FALSE;
+	ELSE
+		q_bHivolampaFEL[1] := FALSE;	
 END_IF
 
 IF i_bHivogombFEL[2] THEN
 	q_bHivolampaFEL[2] := TRUE;
+		ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaFEL[2] := FALSE;
+	ELSE
+		q_bHivolampaFEL[2] := FALSE;	
 END_IF
 
 IF i_bHivogombFEL[3] THEN
 	q_bHivolampaFEL[3] := TRUE;
+		ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaFEL[3] := FALSE;
+	ELSE
+		q_bHivolampaFEL[3] := FALSE;	
 END_IF
 
 IF i_bHivogombFEL[4] THEN
 	q_bHivolampaFEL[4] := TRUE;
+		ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaFEL[4] := FALSE;
+	ELSE
+		q_bHivolampaFEL[4] := FALSE;	
 END_IF
 
 IF i_bHivogombFEL[5] THEN
 	q_bHivolampaFEL[5] := TRUE;
+		ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaFEL[5] := FALSE;
+	ELSE
+		q_bHivolampaFEL[5] := FALSE;	
 END_IF
 
 IF i_bHivogombFEL[6] THEN
 	q_bHivolampaFEL[6] := TRUE;
+		ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaFEL[6] := FALSE;
+	ELSE
+		q_bHivolampaFEL[6] := FALSE;	
 END_IF
 
 IF i_bHivogombFEL[7] THEN
 	q_bHivolampaFEL[7] := TRUE;
+		ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaFEL[7] := FALSE;
+	ELSE
+		q_bHivolampaFEL[7] := FALSE;	
 END_IF
 
 IF i_bHivogombFEL[8] THEN
 	q_bHivolampaFEL[8] := TRUE;
+		ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaFEL[8] := FALSE;
+	ELSE
+		q_bHivolampaFEL[8] := FALSE;	
 END_IF
 
 IF i_bHivogombFEL[9] THEN
 	q_bHivolampaFEL[9] := TRUE;
+		ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaFEL[8] := FALSE;
+	ELSE
+		q_bHivolampaFEL[8] := FALSE;	
 END_IF
 
-//hivo gombok le
+	//hivo gombok le
+IF i_bHivogombLE[1] THEN
+	q_bHivolampaLE[1] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaLE[1] := FALSE;
+	ELSE
+		q_bHivolampaLE[1] := FALSE;	
+END_IF
+
+IF i_bHivogombLE[2] THEN
+	q_bHivolampaLE[2] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaLE[2] := FALSE;
+	ELSE
+		q_bHivolampaLE[2] := FALSE;	
+END_IF
+
+IF i_bHivogombLE[3] THEN
+	q_bHivolampaLE[3] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaLE[3] := FALSE;
+	ELSE
+		q_bHivolampaLE[3] := FALSE;	
+END_IF
+
+IF i_bHivogombLE[4] THEN
+	q_bHivolampaLE[4] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaLE[4] := FALSE;
+	ELSE
+		q_bHivolampaLE[4] := FALSE;	
+END_IF
+
+IF i_bHivogombLE[5] THEN
+	q_bHivolampaLE[5] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaLE[5] := FALSE;
+	ELSE
+		q_bHivolampaLE[5] := FALSE;	
+END_IF
+
+IF i_bHivogombLE[6] THEN
+	q_bHivolampaLE[6] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaLE[6] := FALSE;
+	ELSE
+		q_bHivolampaLE[6] := FALSE;	
+END_IF
+
+IF i_bHivogombLE[7] THEN
+	q_bHivolampaLE[7] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaLE[7] := FALSE;
+	ELSE
+		q_bHivolampaLE[7] := FALSE;	
+END_IF
+
+IF i_bHivogombLE[8] THEN
+	q_bHivolampaLE[8] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaLE[8] := FALSE;
+	ELSE
+		q_bHivolampaLE[8] := FALSE;	
+END_IF
+
+IF i_bHivogombLE[9] THEN
+	q_bHivolampaLE[9] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaLE[9] := FALSE;
+	ELSE
+		q_bHivolampaLE[9] := FALSE;	
+END_IF
+
+IF i_bHivogombLE[10] THEN
+	q_bHivolampaLE[10] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bHivolampaLE[10] := FALSE;
+	ELSE
+		q_bHivolampaLE[10] := FALSE;	
+END_IF
+
+	//fulkegomb lampak
+IF i_bFulkegomb[0] THEN
+	q_bFulkegomblampa[0] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bFulkegomblampa[0] := FALSE;
+	ELSE
+		q_bFulkegomblampa[0] := FALSE;	
+END_IF
+	
+IF i_bFulkegomb[1] THEN
+	q_bFulkegomblampa[1] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bFulkegomblampa[1] := FALSE;
+	ELSE
+		q_bFulkegomblampa[1] := FALSE;	
+END_IF
+
+IF i_bFulkegomb[2] THEN
+	q_bFulkegomblampa[2] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bFulkegomblampa[2] := FALSE;
+	ELSE
+		q_bFulkegomblampa[2] := FALSE;	
+END_IF
+
+IF i_bFulkegomb[3] THEN
+	q_bFulkegomblampa[3] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bFulkegomblampa[3] := FALSE;
+	ELSE
+		q_bFulkegomblampa[3] := FALSE;	
+END_IF
+
+IF i_bFulkegomb[4] THEN
+	q_bFulkegomblampa[4] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bFulkegomblampa[4] := FALSE;
+	ELSE
+		q_bFulkegomblampa[4] := FALSE;	
+END_IF
+
+IF i_bFulkegomb[5] THEN
+	q_bFulkegomblampa[5] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bFulkegomblampa[5] := FALSE;
+	ELSE
+		q_bFulkegomblampa[5] := FALSE;	
+END_IF
+
+IF i_bFulkegomb[6] THEN
+	q_bFulkegomblampa[6] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bFulkegomblampa[6] := FALSE;
+	ELSE
+		q_bFulkegomblampa[6] := FALSE;	
+END_IF
+
+IF i_bFulkegomb[7] THEN
+	q_bFulkegomblampa[7] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bFulkegomblampa[7] := FALSE;
+	ELSE
+		q_bFulkegomblampa[7] := FALSE;	
+END_IF
+
+IF i_bFulkegomb[8] THEN
+	q_bFulkegomblampa[8] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bFulkegomblampa[8] := FALSE;
+	ELSE
+		q_bFulkegomblampa[8] := FALSE;	
+END_IF
+
+IF i_bFulkegomb[9] THEN
+	q_bFulkegomblampa[9] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bFulkegomblampa[9] := FALSE;
+	ELSE
+		q_bFulkegomblampa[9] := FALSE;	
+END_IF
+
+IF i_bFulkegomb[10] THEN
+	q_bFulkegomblampa[10] := TRUE;
+	ELSIF nCelEmelet = nJelenlegiEmelet AND NOT i_bFulkeZART THEN
+		q_bFulkegomblampa[10] := FALSE;
+	ELSE
+		q_bFulkegomblampa[10] := FALSE;	
+END_IF
+
+
 ]]></ST>
     </Implementation>
   </POU>
